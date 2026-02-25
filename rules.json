@@ -1,0 +1,13 @@
+{
+    "India": {
+        "restricted_hs": [
+            "123456",
+            "999999"
+        ]
+    },
+    "Germany": {
+        "restricted_hs": [
+            "111111"
+        ]
+    }
+}

@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.container {
+    background: #1e293b;
+    padding: 40px;
+    width: 60%;
+    margin: auto;
+    border-radius: 12px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2563eb;
+}
+
+pre {
+    text-align: left;
+    background: #0f172a;
+    padding: 15px;
+    border-radius: 8px;
+}

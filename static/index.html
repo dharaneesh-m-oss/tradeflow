@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TradeFlow AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>TradeFlow AI</h1>
+
+        <form id="uploadForm">
+            <input type="file" id="fileInput" required>
+            <button type="submit">Analyze Document</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const fileInput = document.getElementById("fileInput");
+            const resultDiv = document.getElementById("result");
+
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("Select a file");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            resultDiv.innerHTML = "Processing...";
+
+            const response = await fetch("/upload/", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            resultDiv.innerHTML = `
+        <h3>Status: ${data.review_status}</h3>
+        <p><strong>Converted INR:</strong> ${data.converted_value_inr || "-"}</p>
+        <pre>${JSON.stringify(data.auto_filled_form, null, 2)}</pre>
+    `;
+        });
+    </script>
+
+</body>
+
+</html>

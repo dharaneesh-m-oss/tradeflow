@@ -1,0 +1,14 @@
+{
+    "Germany": {
+        "consignor_name": "exporter_name",
+        "consignee_name": "importer_name",
+        "tariff_code": "hs_code",
+        "customs_value": "invoice_value"
+    },
+    "India": {
+        "exporter": "exporter_name",
+        "importer": "importer_name",
+        "hs_code": "hs_code",
+        "invoice_value": "invoice_value"
+    }
+}

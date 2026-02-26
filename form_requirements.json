@@ -1,0 +1,17 @@
+{
+    "india": [
+        "importer_code",
+        "arrival_port",
+        "country_of_origin"
+    ],
+    "japan": [
+        "importer_code",
+        "arrival_port",
+        "country_of_origin"
+    ],
+    "usa": [
+        "importer_code",
+        "arrival_port",
+        "country_of_origin"
+    ]
+}

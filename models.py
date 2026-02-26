@@ -1,20 +1,32 @@
 from sqlalchemy import Column, Integer, String, Float
 from database import Base
 
-class Document(Base):
+
+class DocumentModel(Base):
     __tablename__ = "documents"
 
     id = Column(Integer, primary_key=True, index=True)
 
-    hs_code = Column(String, nullable=True)
-    invoice_value = Column(Float, nullable=True)
-    currency = Column(String, nullable=True)
+    hs_code = Column(String)
+    goods_description = Column(String)
 
-    exporter_name = Column(String, nullable=True)
-    consignee_name = Column(String, nullable=True)
-    consignee_address = Column(String, nullable=True)
+    invoice_value = Column(Float)
+    currency = Column(String)
 
-    order_date = Column(String, nullable=True)
-    order_number = Column(String, nullable=True)
+    country_of_origin = Column(String)
 
-    review_status = Column(String, nullable=True)
+    importer_name = Column(String)
+    importer_code = Column(String)
+
+    exporter_name = Column(String)
+
+    port_of_entry = Column(String)
+    customs_office_code = Column(String)
+
+    declaration_number = Column(String)
+
+    duty_rate = Column(String)
+    consumption_tax = Column(String)
+    total_duties = Column(String)
+
+    review_status = Column(String)

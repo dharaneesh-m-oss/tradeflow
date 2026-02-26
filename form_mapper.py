@@ -1,16 +1,14 @@
 import json
 
-def map_form(country, extracted):
+with open("form_templates.json", "r") as f:
+    FORM_MAP = json.load(f)
 
-    try:
-        with open("form_templates.json", "r") as f:
-            templates = json.load(f)
-    except:
-        return {}
+def map_to_country(country, data):
 
-    template = templates.get(country, {})
+    template = FORM_MAP.get(country.upper(), {})
+    mapped = {}
 
-    return {
-        field: extracted.get(source)
-        for field, source in template.items()
-    }
+    for key, source in template.items():
+        mapped[key] = data.get(source, "")
+
+    return mapped

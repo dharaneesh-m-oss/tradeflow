@@ -1,4 +1,1 @@
-REVIEW_THRESHOLD_REQUIRED_FIELDS = ["hs_code", "invoice_value"]
-DEFAULT_FORM_COUNTRY = "Germany"
-DEFAULT_RULE_COUNTRY = "India"
-MAX_FILE_SIZE_MB = 5
+DATABASE_URL = "sqlite:///./tradeflow.db"

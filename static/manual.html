@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Generator | TradeFlow AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .form-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-section h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-section h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">TRADEFLOW AI</div>
+        <div class="nav-links">
+            <div id="userProfileInfo"></div>
+            <a href="/">Home</a>
+            <a href="/app">Platform</a>
+            <a href="/manual" class="active">Document Generator</a>
+            <a href="/rules">Compliance</a>
+            <a href="/about">About</a>
+            <select class="lang-selector" onchange="switchLanguage(this.value)">
+                <option value="en">EN</option>
+                <option value="hi">HI</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="container" style="max-width: 1000px; margin: 40px auto;">
+        <header style="margin-bottom: 50px; text-align: center;">
+            <h1
+                style="font-size: 42px; margin-bottom: 10px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Trade Document Generator</h1>
+            <p style="color: var(--text-muted); font-size: 18px;">Manual entry for official Customs Declarations, PDF &
+                DOCX generation.</p>
+        </header>
+
+        <form id="manualEntryForm" onsubmit="submitManualEntry(event)">
+            <!-- SECTION 1: CORE TRADE INFO -->
+            <div class="form-section">
+                <h2>1. Core Trade Information</h2>
+                <div class="form-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                    <div class="form-group">
+                        <label>HS Code</label>
+                        <input type="text" id="hsCode" placeholder="e.g. 854140" required>
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label>Goods Description</label>
+                        <input type="text" id="goodsDescription" placeholder="e.g. Semiconductor devices, ICs" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Invoice Value</label>
+                        <input type="number" id="invoiceValue" placeholder="0.00" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Currency</label>
+                        <select id="currency">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="INR">INR</option>
+                            <option value="AED">AED</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="dateInput" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: STAKEHOLDERS -->
+            <div class="form-section">
+                <h2>2. Shipping Stakeholders</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Importer Name (Consignee)</label>
+                        <input type="text" id="importerName" placeholder="Buyer Entity" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Exporter Name (Shipper)</label>
+                        <input type="text" id="exporterName" placeholder="Seller Entity" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Importer Code (IEC/TAX ID)</label>
+                        <input type="text" id="importerCode" placeholder="e.g. 0512345678">
+                    </div>
+                    <div class="form-group">
+                        <label>Consignee Location</label>
+                        <input type="text" id="consigneeLocation" placeholder="e.g. Emirates, Dubai">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: LOGISTICS -->
+            <div class="form-section">
+                <h2>3. Logistics & Ports</h2>
+                <div class="form-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                    <div class="form-group">
+                        <label>Vessel / Flight</label>
+                        <input type="text" id="vesselName" placeholder="e.g. Maersk Hamburg">
+                    </div>
+                    <div class="form-group">
+                        <label>Port of Loading</label>
+                        <input type="text" id="loadingPort" placeholder="e.g. Tokyo, Japan">
+                    </div>
+                    <div class="form-group">
+                        <label>Port of Entry</label>
+                        <input type="text" id="arrivalPortInput" placeholder="e.g. Chennai, India">
+                    </div>
+                    <div class="form-group">
+                        <label>Origin Country</label>
+                        <select id="originCountry">
+                            <option value="Japan">Japan</option>
+                            <option value="China">China</option>
+                            <option value="USA">USA</option>
+                            <option value="India">India</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Target Country (Rules)</label>
+                        <select id="targetCountry">
+                            <option value="india">India</option>
+                            <option value="usa">USA</option>
+                            <option value="japan">Japan</option>
+                            <option value="uae">UAE</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Container No.</label>
+                        <input type="text" id="containerNo" placeholder="e.g. DFGH7893425">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: WEIGHTS -->
+            <div class="form-section">
+                <h2>4. Weight Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Net Weight (KG)</label>
+                        <input type="number" id="netWeight" placeholder="0.00" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Gross Weight (KG)</label>
+                        <input type="number" id="grossWeight" placeholder="0.00" step="0.01">
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; display: flex; gap: 20px; justify-content: center;">
+                <button type="submit" class="btn btn-primary"
+                    style="padding: 18px 50px; font-size: 18px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 112, 243, 0.3);">
+                    Check Compliance & Generate Documents
+                </button>
+            </div>
+        </form>
+
+        <div id="manualResult" class="hidden"
+            style="margin-top: 60px; animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);">
+            <!-- Results and Downloads will appear here -->
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+    <script>
+        // Set today's date as default
+        document.getElementById('dateInput').valueAsDate = new Date();
+    </script>
+</body>
+
+</html>

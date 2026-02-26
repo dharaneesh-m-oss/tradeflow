@@ -1,56 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>TradeFlow AI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeFlow AI | Intelligent Customs Automation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>TradeFlow AI</h1>
-
-        <form id="uploadForm">
-            <input type="file" id="fileInput" required>
-            <button type="submit">Analyze Document</button>
-        </form>
-
-        <div id="result"></div>
+    <div class="bg-mesh">
+        <div class="mesh-blob blob-1"></div>
+        <div class="mesh-blob blob-2"></div>
+        <div class="mesh-blob blob-3"></div>
     </div>
 
-    <script>
-        document.getElementById("uploadForm").addEventListener("submit", async function (e) {
-            e.preventDefault();
+    <nav>
+        <div class="logo">TRADEFLOW AI</div>
+        <div class="nav-links">
+            <a href="/" data-i18n="nav_home">Home</a>
+            <a href="/app" data-i18n="nav_platform">Platform</a>
+            <a href="/manual" data-i18n="nav_manual">Manual Entry</a>
+            <a href="/calculator" data-i18n="nav_calculator">Tax Calculator</a>
+            <a href="/rules" data-i18n="nav_updates">Compliance Updates</a>
+            <a href="/about" data-i18n="nav_about">About</a>
+            <select class="lang-selector" onchange="switchLanguage(this.value)">
+                <option value="en">EN</option>
+                <option value="hi">HI</option>
+                <option value="es">ES</option>
+                <option value="fr">FR</option>
+                <option value="de">DE</option>
+                <option value="zh">ZH</option>
+                <option value="ja">JA</option>
+                <option value="ru">RU</option>
+                <option value="pt">PT</option>
+                <option value="ar">AR</option>
+            </select>
+        </div>
+    </nav>
 
-            const fileInput = document.getElementById("fileInput");
-            const resultDiv = document.getElementById("result");
+    <main>
+        <section class="hero">
+            <div class="hero-visuals">
+                <div class="floating-shape"
+                    style="width: 100px; height: 100px; top: 10%; left: 5%; animation: float 15s infinite alternate-reverse;">
+                </div>
+                <div class="floating-shape"
+                    style="width: 150px; height: 150px; bottom: 15%; right: 8%; animation: float 20s infinite alternate;">
+                </div>
+                <div class="floating-shape"
+                    style="width: 80px; height: 80px; top: 40%; right: 5%; animation: float 12s infinite alternate;">
+                </div>
+            </div>
+            <h1>Intelligent Customs<br>Automation Engine</h1>
+            <p>Precision OCR. Global Compliance. Automated Declarations. The operating system for modern cross-border
+                trade.</p>
+            <a href="/app" class="cta-btn">Enter Platform</a>
+            <a href="/about" class="cta-btn cta-btn-secondary" style="margin-left: 15px;">About Us</a>
+        </section>
 
-            const file = fileInput.files[0];
-            if (!file) {
-                alert("Select a file");
-                return;
-            }
+        <section class="features">
+            <div class="feature-card">
+                <h3>Structured Extraction</h3>
+                <p>Advanced neural OCR extracts complex trade data from invoices with contextual precision.</p>
+            </div>
 
-            const formData = new FormData();
-            formData.append("file", file);
+            <div class="feature-card">
+                <h3>Global Rules Engine</h3>
+                <p>Real-time validation against country-specific regulations, HS codes, and restricted entities.</p>
+            </div>
 
-            resultDiv.innerHTML = "Processing...";
-
-            const response = await fetch("/upload/", {
-                method: "POST",
-                body: formData
-            });
-
-            const data = await response.json();
-
-            resultDiv.innerHTML = `
-        <h3>Status: ${data.review_status}</h3>
-        <p><strong>Converted INR:</strong> ${data.converted_value_inr || "-"}</p>
-        <pre>${JSON.stringify(data.auto_filled_form, null, 2)}</pre>
-    `;
-        });
-    </script>
+            <div class="feature-card">
+                <h3>Declaration Sync</h3>
+                <p>One-click generation of audit-ready compliance documents for global customs authorities.</p>
+            </div>
+        </section>
+    </main>
 
 </body>
 

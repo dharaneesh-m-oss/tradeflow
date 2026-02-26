@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - TradeFlow AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .about-hero {
+            text-align: center;
+            padding: 100px 20px 60px;
+        }
+
+        .team-section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 40px;
+            margin-top: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .team-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            background: rgba(30, 41, 59, 0.8);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .member-img-wrapper {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+
+        .member-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #1e293b;
+            border: 4px solid #0f172a;
+        }
+
+        .team-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .team-card .role {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .team-card .bio {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .section-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-mesh">
+        <div class="mesh-blob blob-1"></div>
+        <div class="mesh-blob blob-2"></div>
+        <div class="mesh-blob blob-3"></div>
+    </div>
+
+    <nav>
+        <div class="logo">TRADEFLOW AI</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/app">Platform</a>
+            <a href="/manual">Manual Entry</a>
+            <a href="/calculator">Tax Calculator</a>
+            <a href="/rules">Compliance</a>
+            <select class="lang-selector" onchange="switchLanguage(this.value)">
+                <option value="en">EN</option>
+                <option value="hi">HI</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="container" style="max-width: 1200px;">
+        <header class="about-hero">
+            <span class="section-tag">Our Mission</span>
+            <h1
+                style="font-size: 64px; margin-bottom: 20px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Revolutionizing Global Trade</h1>
+            <p style="color: var(--text-muted); font-size: 20px; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                TradeFlow AI is built on the belief that global compliance should be instantaneous, intelligent, and
+                accessible.
+                We combine state-of-the-art vision models with deep regulatory knowledge to help businesses scale across
+                borders without friction.
+            </p>
+        </header>
+
+        <section class="team-section">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag" style="background: rgba(16, 185, 129, 0.1); color: var(--accent);">Architects
+                    of Tomorrow</span>
+                <h2 style="font-size: 42px;">Meet Our Visionary Team</h2>
+            </div>
+
+            <div class="team-grid">
+                <!-- LEADER 1 -->
+                <div class="team-card">
+                    <div class="member-img-wrapper">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Priyadharshini" alt="Priyadharshini"
+                            class="member-img">
+                    </div>
+                    <h3>Priyadharshini</h3>
+                    <div class="role">Team Lead & Data Trainer</div>
+                    <p class="bio">Orchestrating the core intelligence of TradeFlow AI, specializing in deep learning
+                        and team synergy.</p>
+                </div>
+
+                <!-- LEADER 2 -->
+                <div class="team-card">
+                    <div class="member-img-wrapper">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Dharaneesh" alt="Dharaneesh"
+                            class="member-img">
+                    </div>
+                    <h3>Dharaneesh</h3>
+                    <div class="role">Backend & Pitch Lead</div>
+                    <p class="bio">Engineering the high-scalability backend infrastructure and leading the strategic
+                        vision for the platform.</p>
+                </div>
+
+                <!-- LEADER 3 -->
+                <div class="team-card">
+                    <div class="member-img-wrapper">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Tharuneekha" alt="Tharuneekha"
+                            class="member-img">
+                    </div>
+                    <h3>Tharuneekha</h3>
+                    <div class="role">Frontend & Research Lead</div>
+                    <p class="bio">Crafting premium user experiences and spearheading research into emerging trade
+                        technologies.</p>
+                </div>
+
+                <!-- LEADER 4 -->
+                <div class="team-card">
+                    <div class="member-img-wrapper">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sanjay" alt="Sanjay RM"
+                            class="member-img">
+                    </div>
+                    <h3>Sanjay RM</h3>
+                    <div class="role">Business Lead</div>
+                    <p class="bio">Bridging the gap between technological innovation and real-world global trade
+                        business requirements.</p>
+                </div>
+
+                <!-- LEADER 5 -->
+                <div class="team-card">
+                    <div class="member-img-wrapper">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Saikeerthana" alt="Saikeerthana"
+                            class="member-img">
+                    </div>
+                    <h3>Saikeerthana</h3>
+                    <div class="role">Research Analyst</div>
+                    <p class="bio">Analyzing complex global regulations to fuel the AI engine with accurate, up-to-date
+                        compliance data.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer style="margin-top: 100px; text-align: center; padding-bottom: 60px;">
+            <p style="color: var(--text-muted);">&copy; 2026 TradeFlow AI Platform. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

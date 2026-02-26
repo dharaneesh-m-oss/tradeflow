@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulatory Updates | TradeFlow AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">TRADEFLOW AI</div>
+        <div class="nav-links">
+            <div id="userProfileInfo"></div>
+            <a href="/" data-i18n="nav_home">Home</a>
+            <a href="/app" data-i18n="nav_platform">Platform</a>
+            <a href="/manual" data-i18n="nav_manual">Manual Entry</a>
+            <a href="/calculator" data-i18n="nav_calculator">Tax Calculator</a>
+            <a href="/rules" class="active" data-i18n="nav_updates">Compliance Updates</a>
+            <a href="/about" data-i18n="nav_about">About</a>
+            <select class="lang-selector" onchange="switchLanguage(this.value)">
+                <option value="en">EN</option>
+                <option value="hi">HI</option>
+                <option value="es">ES</option>
+                <option value="fr">FR</option>
+                <option value="de">DE</option>
+                <option value="zh">ZH</option>
+                <option value="ja">JA</option>
+                <option value="ru">RU</option>
+                <option value="pt">PT</option>
+                <option value="ar">AR</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="rules-hero">
+        <div class="container">
+            <h1>Regulatory Intelligence</h1>
+            <p>Real-time monitoring of global trade policy changes and customs regulations.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="rules-grid" id="updatesTimeline">
+            <!-- Dynamic Updates will be loaded here -->
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Syncing global databases...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRulesUpdates();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,25 +1,23 @@
-import requests
+# Simple static currency conversion (Hackathon Safe Version)
 
-def convert_currency(amount, from_currency, to_currency="INR"):
+EXCHANGE_RATES = {
+    "USD": 83.0,
+    "EUR": 90.0,
+    "GBP": 105.0,
+    "JPY": 0.55,
+    "INR": 1.0
+}
 
-    if not amount or not from_currency:
+
+def convert_currency(amount, currency):
+    if not amount or not currency:
         return None
 
-    try:
-        response = requests.get(
-            "https://api.exchangerate.host/convert",
-            params={
-                "from": from_currency,
-                "to": to_currency,
-                "amount": amount
-            },
-            timeout=4
-        )
+    currency = currency.upper()
 
-        data = response.json()
-        result = data.get("result")
+    rate = EXCHANGE_RATES.get(currency)
 
-        return round(result, 2) if result else None
-
-    except:
+    if not rate:
         return None
+
+    return round(amount * rate, 2)

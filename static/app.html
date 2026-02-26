@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform | TradeFlow AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">TRADEFLOW AI</div>
+        <div class="nav-links">
+            <div id="userProfileInfo"></div>
+            <a href="/" data-i18n="nav_home">Home</a>
+            <a href="/app" class="active" data-i18n="nav_platform">Platform</a>
+            <a href="/manual" data-i18n="nav_manual">Manual Entry</a>
+            <a href="/calculator" data-i18n="nav_calculator">Tax Calculator</a>
+            <a href="/rules" data-i18n="nav_updates">Compliance Updates</a>
+            <a href="/about" data-i18n="nav_about">About</a>
+            <select class="lang-selector" onchange="switchLanguage(this.value)">
+                <option value="en">EN</option>
+                <option value="hi">HI</option>
+                <option value="es">ES</option>
+                <option value="fr">FR</option>
+                <option value="de">DE</option>
+                <option value="zh">ZH</option>
+                <option value="ja">JA</option>
+                <option value="ru">RU</option>
+                <option value="pt">PT</option>
+                <option value="ar">AR</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Upload Section -->
+        <div class="card">
+            <h2>Process Document</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Upload your trade invoice or customs form for AI
+                extraction and compliance validation.</p>
+
+            <div class="upload-zone" style="display: flex; gap: 15px; align-items: flex-start;">
+                <input type="file" id="fileInput" style="margin-bottom: 0;" onchange="handleUpload(event)">
+                <label for="fileInput" class="primary-btn"
+                    style="width: auto; padding: 14px 28px; cursor: pointer;">Scale Extraction</label>
+            </div>
+
+            <div id="loadingSpinner" class="spinner hidden"></div>
+            <p id="statusText" style="text-align: center; margin-top: 15px; font-weight: 500;"></p>
+        </div>
+
+        <div id="mainDashboard" class="hidden">
+            <!-- Data Grid -->
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <h3>Extracted Intelligence</h3>
+                    <span id="overallConfidence" class="badge badge-success">Confidence: --%</span>
+                </div>
+
+                <div class="grid">
+                    <div class="data-item"><label>HS Code</label><span id="hsCode">-</span></div>
+                    <div class="data-item"><label>Importer Code</label><span id="importerCodeExtracted">-</span></div>
+                    <div class="data-item"><label>Invoice Value</label><span id="invoiceValue">-</span></div>
+                    <div class="data-item"><label>Date</label><span id="date">-</span></div>
+
+                    <div class="data-item"><label>Importer</label><span id="importer">-</span></div>
+                    <div class="data-item"><label>Consignee</label><span id="consignee">-</span></div>
+                    <div class="data-item"><label>Exporter</label><span id="exporter">-</span></div>
+
+                    <div class="data-item"><label>Vessel/Flight</label><span id="vessel">-</span></div>
+                    <div class="data-item"><label>Container No</label><span id="containerNo">-</span></div>
+                    <div class="data-item"><label>Port of Loading</label><span id="loadingPort">-</span></div>
+                    <div class="data-item"><label>Arrival Port</label><span id="port">-</span></div>
+
+                    <div class="data-item"><label>Net Weight</label><span id="netWeight">-</span></div>
+                    <div class="data-item"><label>Gross Weight</label><span id="grossWeight">-</span></div>
+                    <div class="data-item"><label>Origin</label><span id="origin">-</span></div>
+
+                    <div class="data-item" style="grid-column: 1 / -1;"><label>Goods Description</label><span
+                            id="goodsDescription">-</span></div>
+                </div>
+            </div>
+
+            <!-- Compliance Section -->
+            <div class="card">
+                <h3>System Compliance Check</h3>
+                <div class="grid" id="complianceGrid">
+                    <!-- Dynamic Compliance Cards -->
+                </div>
+            </div>
+
+            <!-- Generation Section -->
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <h3>Generate Declaration</h3>
+                    <select id="countrySelect" style="width: 250px; margin-bottom: 0;">
+                        <option value="">Target Authority</option>
+                        <option value="india">India Customs</option>
+                        <option value="usa">US CBP</option>
+                        <option value="japan">Japan Customs</option>
+                        <option value="singapore">Singapore Customs</option>
+                        <option value="uk">UK Customs</option>
+                        <option value="germany">Germany Customs</option>
+                        <option value="france">France Customs</option>
+                        <option value="italy">Italy Customs</option>
+                        <option value="canada">Canada Customs</option>
+                        <option value="australia">Australia Customs</option>
+                        <option value="china">China Customs</option>
+                        <option value="uae">UAE Customs</option>
+                        <option value="brazil">Brazil Customs</option>
+                        <option value="mexico">Mexico Customs</option>
+                        <option value="south_korea">South Korea Customs</option>
+                        <option value="south_africa">South Africa Customs</option>
+                        <option value="saudi_arabia">Saudi Arabia Customs</option>
+                        <option value="russia">Russia Customs</option>
+                        <option value="indonesia">Indonesia Customs</option>
+                        <option value="turkey">Turkey Customs</option>
+                        <option value="netherlands">Netherlands Customs</option>
+                        <option value="switzerland">Switzerland Customs</option>
+                        <option value="spain">Spain Customs</option>
+                        <option value="sweden">Sweden Customs</option>
+                        <option value="norway">Norway Customs</option>
+                        <option value="denmark">Denmark Customs</option>
+                        <option value="belgium">Belgium Customs</option>
+                        <option value="thailand">Thailand Customs</option>
+                        <option value="vietnam">Vietnam Customs</option>
+                        <option value="malaysia">Malaysia Customs</option>
+                    </select>
+                </div>
+
+                <div class="grid" style="margin-bottom: 30px;">
+                    <input type="text" id="importerCode" placeholder="Importer Code (IEC/Tax ID)">
+                    <input type="text" id="arrivalPortInput" placeholder="Specific Port Name">
+                    <input type="text" id="originInput" placeholder="Origin Declaration">
+                </div>
+
+                <button class="primary-btn" onclick="generateDocuments()">Sync & Generate Document</button>
+
+                <div class="download-section hidden" id="downloadSection">
+                    <a id="docxLink" class="download-btn" target="_blank">DOCX Declaration</a>
+                    <a id="pdfLink" class="download-btn" target="_blank">PDF Declaration</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-bubble" onclick="toggleChat()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="color: white;">
+                <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
+            </svg>
+        </div>
+
+        <div id="chatWindow" class="chat-window hidden">
+            <div class="chat-header">
+                <span style="font-weight: 600;">TradeFlow Assistant</span>
+                <button onclick="toggleChat()"
+                    style="background: none; border: none; color: var(--text-muted); cursor: pointer;">✕</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message message-ai">
+                    Hello! I'm your TradeFlow AI assistant. How can I help you with your trade documents or compliance
+                    today?
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Ask about compliance..."
+                    onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button class="primary-btn" style="width: auto; padding: 10px 15px;"
+                    onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

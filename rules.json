@@ -1,13 +1,551 @@
 {
-    "India": {
-        "restricted_hs": [
-            "123456",
-            "999999"
+    "india": {
+        "restricted_hs_codes": [
+            "93010000",
+            "93020000",
+            "93030000",
+            "88021100"
+        ],
+        "hs_length": 8,
+        "high_risk_exporters": [
+            "XYZ Blacklist Corp"
+        ],
+        "tax_rates": {
+            "standard": 0.18,
+            "luxury": 0.28
+        },
+        "ports": [
+            "Mumbai (JNPT)",
+            "Mundra",
+            "Chennai",
+            "Kolkata",
+            "Visakhapatnam",
+            "Tuticorin",
+            "Cochin",
+            "Pipavav"
         ]
     },
-    "Germany": {
-        "restricted_hs": [
-            "111111"
+    "japan": {
+        "restricted_hs_codes": [
+            "12010000",
+            "12020000",
+            "12030000"
+        ],
+        "hs_length": 9,
+        "high_risk_exporters": [
+            "Osaka Shadow Trade"
+        ],
+        "tax_rates": {
+            "gst": 0.10
+        },
+        "ports": [
+            "Tokyo",
+            "Yokohama",
+            "Nagoya",
+            "Osaka",
+            "Kobe",
+            "Hakata"
         ]
-    }
+    },
+    "usa": {
+        "restricted_hs_codes": [
+            "93020000",
+            "93011000",
+            "93012000"
+        ],
+        "hs_length": 10,
+        "high_risk_exporters": [
+            "Global Arms Ltd"
+        ],
+        "tax_rates": {
+            "import_duty": 0.05
+        },
+        "ports": [
+            "Los Angeles",
+            "Long Beach",
+            "New York/New Jersey",
+            "Savannah",
+            "Houston",
+            "Norfolk",
+            "Charleston"
+        ]
+    },
+    "singapore": {
+        "restricted_hs_codes": [
+            "24022090"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "gst": 0.09
+        },
+        "ports": [
+            "Port of Singapore"
+        ]
+    },
+    "uk": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "vat": 0.20
+        },
+        "ports": [
+            "Felixstowe",
+            "Southampton",
+            "London Gateway",
+            "Liverpool",
+            "Immingham"
+        ]
+    },
+    "germany": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "vat": 0.19
+        },
+        "ports": [
+            "Hamburg",
+            "Bremerhaven",
+            "Wilhelmshaven",
+            "Duisburg"
+        ]
+    },
+    "france": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "tva": 0.20
+        },
+        "ports": [
+            "Le Havre",
+            "Marseille",
+            "Dunkirk",
+            "Nantes Saint-Nazaire"
+        ]
+    },
+    "italy": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "iva": 0.22
+        },
+        "ports": [
+            "Gioia Tauro",
+            "Genoa",
+            "La Spezia",
+            "Trieste",
+            "Naples"
+        ]
+    },
+    "canada": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 10,
+        "tax_rates": {
+            "hst": 0.13
+        },
+        "ports": [
+            "Vancouver",
+            "Montreal",
+            "Prince Rupert",
+            "Halifax",
+            "Saint John"
+        ]
+    },
+    "australia": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 10,
+        "tax_rates": {
+            "gst": 0.10
+        },
+        "ports": [
+            "Melbourne",
+            "Sydney (Botany)",
+            "Brisbane",
+            "Fremantle",
+            "Adelaide"
+        ]
+    },
+    "china": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "vat": 0.13
+        },
+        "ports": [
+            "Shanghai",
+            "Ningbo-Zhoushan",
+            "Shenzhen",
+            "Guangzhou",
+            "Qingdao",
+            "Tianjin"
+        ]
+    },
+    "uae": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "vat": 0.05
+        },
+        "ports": [
+            "Jebel Ali (Dubai)",
+            "Abu Dhabi (Khalifa)",
+            "Khor Fakkan",
+            "Fujairah"
+        ]
+    },
+    "brazil": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "ipi": 0.15
+        },
+        "ports": [
+            "Santos",
+            "Paranaguá",
+            "Itajaí",
+            "Rio Grande",
+            "Manaus"
+        ]
+    },
+    "mexico": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "iva": 0.16
+        },
+        "ports": [
+            "Manzanillo",
+            "Lázaro Cárdenas",
+            "Veracruz",
+            "Altamira"
+        ]
+    },
+    "south_korea": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 10,
+        "tax_rates": {
+            "vat": 0.10
+        },
+        "ports": [
+            "Busan",
+            "Incheon",
+            "Gwangyang",
+            "Ulsan"
+        ]
+    },
+    "south_africa": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "vat": 0.15
+        },
+        "ports": [
+            "Durban",
+            "Cape Town",
+            "Port Elizabeth",
+            "Ngqura",
+            "Richards Bay"
+        ]
+    },
+    "saudi_arabia": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "vat": 0.15
+        },
+        "ports": [
+            "Jeddah Islamic Port",
+            "King Abdullah Port",
+            "Dammam"
+        ]
+    },
+    "russia": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 10,
+        "tax_rates": {
+            "vat": 0.20
+        },
+        "ports": [
+            "St. Petersburg",
+            "Novorossiysk",
+            "Vladivostok",
+            "Murmansk"
+        ]
+    },
+    "indonesia": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "vat": 0.11
+        },
+        "ports": [
+            "Tanjung Priok (Jakarta)",
+            "Tanjung Perak (Surabaya)",
+            "Belawan (Medan)"
+        ]
+    },
+    "turkey": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 12,
+        "tax_rates": {
+            "kdv": 0.18
+        },
+        "ports": [
+            "Ambarli (Istanbul)",
+            "Kocaeli",
+            "Mersin",
+            "Izmir"
+        ]
+    },
+    "netherlands": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "btw": 0.21
+        },
+        "ports": [
+            "Rotterdam",
+            "Amsterdam",
+            "Moerdijk",
+            "Vlissingen"
+        ]
+    },
+    "switzerland": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "mwst": 0.081
+        },
+        "ports": [
+            "Basel (Inland)"
+        ]
+    },
+    "spain": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "iva": 0.21
+        },
+        "ports": [
+            "Algeciras",
+            "Valencia",
+            "Barcelona",
+            "Bilbao",
+            "Las Palmas"
+        ]
+    },
+    "sweden": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "moms": 0.25
+        },
+        "ports": [
+            "Gothenburg",
+            "Stockholm",
+            "Helsingborg",
+            "Malmö"
+        ]
+    },
+    "norway": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "mva": 0.25
+        },
+        "ports": [
+            "Oslo",
+            "Bergen",
+            "Stavanger",
+            "Kristiansand"
+        ]
+    },
+    "denmark": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "moms": 0.25
+        },
+        "ports": [
+            "Aarhus",
+            "Copenhagen",
+            "Fredericia",
+            "Aalborg"
+        ]
+    },
+    "belgium": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "btw": 0.21
+        },
+        "ports": [
+            "Antwerp-Bruges",
+            "Zeebrugge",
+            "Ghent"
+        ]
+    },
+    "thailand": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "vat": 0.07
+        },
+        "ports": [
+            "Laem Chabang",
+            "Bangkok",
+            "Songkhla"
+        ]
+    },
+    "vietnam": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "vat": 0.10
+        },
+        "ports": [
+            "Ho Chi Minh City",
+            "Haiphong",
+            "Da Nang",
+            "Cai Mep"
+        ]
+    },
+    "malaysia": {
+        "restricted_hs_codes": [
+            "24021000"
+        ],
+        "hs_length": 8,
+        "tax_rates": {
+            "sst": 0.06
+        },
+        "ports": [
+            "Port Klang",
+            "Tanjung Pelepas",
+            "Penang",
+            "Kuantan"
+        ]
+    },
+    "updates": [
+        {
+            "id": 1,
+            "date": "2026-02-25",
+            "country": "India",
+            "title": "Restricted Electronics Update",
+            "description": "New restrictions on specific HS codes for drone components.",
+            "impact": "High"
+        },
+        {
+            "id": 2,
+            "date": "2026-02-20",
+            "country": "USA",
+            "title": "US CBP Port Procedure Change",
+            "description": "Updated declaration forms for arrival at West Coast ports.",
+            "impact": "Medium"
+        },
+        {
+            "id": 3,
+            "date": "2026-02-15",
+            "country": "Japan",
+            "title": "Tax Adjustment",
+            "description": "Minor adjustments to consumption tax calculation for luxury exports.",
+            "impact": "Low"
+        },
+        {
+            "id": 4,
+            "date": "2026-02-28",
+            "country": "Singapore",
+            "title": "GST Amendment 2026",
+            "description": "Revised GST reporting requirements for digital service imports.",
+            "impact": "Medium"
+        },
+        {
+            "id": 5,
+            "date": "2026-02-27",
+            "country": "UK",
+            "title": "Brexit Border Model 3.0",
+            "description": "New sanitary and phytosanitary controls for EU imports.",
+            "impact": "High"
+        },
+        {
+            "id": 6,
+            "date": "2026-02-26",
+            "country": "Germany",
+            "title": "Supply Chain Due Diligence",
+            "description": "Stricter audit requirements for environmental compliance in manufacturing.",
+            "impact": "Medium"
+        },
+        {
+            "id": 7,
+            "date": "2026-02-24",
+            "country": "China",
+            "title": "Customs Digitalization",
+            "description": "Mandatory e-invoice integration for high-value machinery imports.",
+            "impact": "Medium"
+        },
+        {
+            "id": 8,
+            "date": "2026-02-22",
+            "country": "Australia",
+            "title": "Biosecurity Levy",
+            "description": "New cargo levy applied to specific agricultural equipment.",
+            "impact": "Low"
+        },
+        {
+            "id": 9,
+            "date": "2026-02-18",
+            "country": "Canada",
+            "title": "CARM System Phase 2",
+            "description": "Mandatory registration for all commercial importers in the CARM portal.",
+            "impact": "High"
+        }
+    ]
 }

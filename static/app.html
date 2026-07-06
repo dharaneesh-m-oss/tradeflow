@@ -7,40 +7,36 @@
     <title>Platform | TradeFlow AI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
-
-    <nav>
-        <div class="logo">TRADEFLOW AI</div>
-        <div class="nav-links">
-            <div id="userProfileInfo"></div>
-            <a href="/" data-i18n="nav_home">Home</a>
-            <a href="/app" class="active" data-i18n="nav_platform">Platform</a>
-            <a href="/manual" data-i18n="nav_manual">Manual Entry</a>
-            <a href="/calculator" data-i18n="nav_calculator">Tax Calculator</a>
-            <a href="/rules" data-i18n="nav_updates">Compliance Updates</a>
-            <a href="/about" data-i18n="nav_about">About</a>
-            <select class="lang-selector" onchange="switchLanguage(this.value)">
-                <option value="en">EN</option>
-                <option value="hi">HI</option>
-                <option value="es">ES</option>
-                <option value="fr">FR</option>
-                <option value="de">DE</option>
-                <option value="zh">ZH</option>
-                <option value="ja">JA</option>
-                <option value="ru">RU</option>
-                <option value="pt">PT</option>
-                <option value="ar">AR</option>
-            </select>
+    <div class="bg-mesh">
+        <div class="mesh-blob"
+            style="top: -10%; left: -10%; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); width: 800px; height: 800px;">
         </div>
+        <div class="mesh-blob"
+            style="bottom: -10%; right: -10%; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); width: 600px; height: 600px;">
+        </div>
+    </div>
+    <div class="logo">TRADEFLOW.AI</div>
+    <div class="nav-links">
+        <div id="userProfileInfo"></div>
+        <a href="/">Home</a>
+        <a href="/app" class="active">Platform</a>
+        <a href="/manual">Manual</a>
+        <a href="/calculator">Calculator</a>
+        <a href="/rules">Updates</a>
+        <a href="/about">About</a>
+    </div>
     </nav>
 
     <div class="container">
         <!-- Upload Section -->
-        <div class="card">
+        <div class="card reveal">
             <h2>Process Document</h2>
             <p style="color: var(--text-muted); margin-bottom: 20px;">Upload your trade invoice or customs form for AI
                 extraction and compliance validation.</p>
@@ -57,7 +53,7 @@
 
         <div id="mainDashboard" class="hidden">
             <!-- Data Grid -->
-            <div class="card">
+            <div class="card reveal">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
                     <h3>Extracted Intelligence</h3>
                     <span id="overallConfidence" class="badge badge-success">Confidence: --%</span>
@@ -88,7 +84,7 @@
             </div>
 
             <!-- Compliance Section -->
-            <div class="card">
+            <div class="card reveal reveal-delayed-1">
                 <h3>System Compliance Check</h3>
                 <div class="grid" id="complianceGrid">
                     <!-- Dynamic Compliance Cards -->
@@ -96,7 +92,7 @@
             </div>
 
             <!-- Generation Section -->
-            <div class="card">
+            <div class="card reveal reveal-delayed-2">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
                     <h3>Generate Declaration</h3>
                     <select id="countrySelect" style="width: 250px; margin-bottom: 0;">

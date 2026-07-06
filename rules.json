@@ -4,7 +4,8 @@
             "93010000",
             "93020000",
             "93030000",
-            "88021100"
+            "88021100",
+            "77082221"
         ],
         "hs_length": 8,
         "high_risk_exporters": [
@@ -475,6 +476,14 @@
         ]
     },
     "updates": [
+        {
+            "id": 10,
+            "date": "2026-03-07",
+            "country": "India",
+            "title": "Restricted Item: HS 77082221",
+            "description": "HS code 77082221 is now officially blocked for import in India. All shipments containing this code will be flagged for high-risk manual review.",
+            "impact": "High"
+        },
         {
             "id": 1,
             "date": "2026-02-25",

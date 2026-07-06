@@ -111,27 +111,22 @@
     </div>
 
     <nav>
-        <div class="logo">TRADEFLOW AI</div>
+        <div class="logo">TRADEFLOW.AI</div>
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/app">Platform</a>
-            <a href="/manual">Manual Entry</a>
-            <a href="/calculator">Tax Calculator</a>
-            <a href="/rules">Compliance</a>
-            <select class="lang-selector" onchange="switchLanguage(this.value)">
-                <option value="en">EN</option>
-                <option value="hi">HI</option>
-            </select>
+            <a href="/manual">Manual</a>
+            <a href="/calculator">Calculator</a>
+            <a href="/rules">Updates</a>
+            <a href="/about" class="active">About</a>
         </div>
     </nav>
 
     <div class="container" style="max-width: 1200px;">
-        <header class="about-hero">
+        <header class="about-hero hero reveal">
             <span class="section-tag">Our Mission</span>
-            <h1
-                style="font-size: 64px; margin-bottom: 20px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                Revolutionizing Global Trade</h1>
-            <p style="color: var(--text-muted); font-size: 20px; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+            <h1>Revolutionizing Global Trade</h1>
+            <p>
                 TradeFlow AI is built on the belief that global compliance should be instantaneous, intelligent, and
                 accessible.
                 We combine state-of-the-art vision models with deep regulatory knowledge to help businesses scale across
@@ -139,72 +134,163 @@
             </p>
         </header>
 
-        <section class="team-section">
+        <!-- New Statistics Section -->
+        <section class="stats-section reveal-stagger"
+            style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 80px 0;">
+            <div class="card" style="padding: 50px 30px; text-align: center;">
+                <div
+                    style="font-size: 56px; font-weight: 800; color: var(--primary); margin-bottom: 8px; letter-spacing: -2px;">
+                    99.4%</div>
+                <div
+                    style="color: var(--text-muted); text-transform: uppercase; font-size: 11px; letter-spacing: 2px; font-weight: 700;">
+                    Extraction Accuracy</div>
+            </div>
+            <div class="card" style="padding: 50px 30px; text-align: center;">
+                <div
+                    style="font-size: 56px; font-weight: 800; color: var(--accent); margin-bottom: 8px; letter-spacing: -2px;">
+                    1.2s</div>
+                <div
+                    style="color: var(--text-muted); text-transform: uppercase; font-size: 11px; letter-spacing: 2px; font-weight: 700;">
+                    Validation Speed</div>
+            </div>
+            <div class="card" style="padding: 50px 30px; text-align: center;">
+                <div
+                    style="font-size: 56px; font-weight: 800; color: #f59e0b; margin-bottom: 8px; letter-spacing: -2px;">
+                    200+</div>
+                <div
+                    style="color: var(--text-muted); text-transform: uppercase; font-size: 11px; letter-spacing: 2px; font-weight: 700;">
+                    Country Rules</div>
+            </div>
+        </section>
+
+        <section class="team-section reveal reveal-delayed-2">
             <div style="text-align: center; margin-bottom: 50px;">
                 <span class="section-tag" style="background: rgba(16, 185, 129, 0.1); color: var(--accent);">Architects
                     of Tomorrow</span>
                 <h2 style="font-size: 42px;">Meet Our Visionary Team</h2>
             </div>
 
-            <div class="team-grid">
+            <div class="team-grid reveal-stagger">
                 <!-- LEADER 1 -->
-                <div class="team-card">
-                    <div class="member-img-wrapper">
+                <div class="card" style="text-align: center;">
+                    <div class="member-img-wrapper"
+                        style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; border: 2px solid var(--primary); padding: 5px;">
                         <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Priyadharshini" alt="Priyadharshini"
-                            class="member-img">
+                            style="width: 100%; border-radius: 50%;">
                     </div>
-                    <h3>Priyadharshini</h3>
-                    <div class="role">Team Lead & Data Trainer</div>
-                    <p class="bio">Orchestrating the core intelligence of TradeFlow AI, specializing in deep learning
-                        and team synergy.</p>
+                    <h3 style="margin-bottom: 5px; font-size: 22px;">Priyadharshini</h3>
+                    <p
+                        style="color: var(--primary); font-weight: 700; font-size: 13px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
+                        Team Lead & Data Trainer</p>
+                    <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Orchestrating the core
+                        intelligence of TradeFlow AI, specializing in deep learning and team synergy.</p>
                 </div>
 
                 <!-- LEADER 2 -->
-                <div class="team-card">
-                    <div class="member-img-wrapper">
+                <div class="card" style="text-align: center;">
+                    <div class="member-img-wrapper"
+                        style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; border: 2px solid var(--primary); padding: 5px;">
                         <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Dharaneesh" alt="Dharaneesh"
-                            class="member-img">
+                            style="width: 100%; border-radius: 50%;">
                     </div>
-                    <h3>Dharaneesh</h3>
-                    <div class="role">Backend & Pitch Lead</div>
-                    <p class="bio">Engineering the high-scalability backend infrastructure and leading the strategic
-                        vision for the platform.</p>
+                    <h3 style="margin-bottom: 5px; font-size: 22px;">Dharaneesh M</h3>
+                    <p
+                        style="color: var(--primary); font-weight: 700; font-size: 13px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
+                        Visionary Architect</p>
+                    <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Leading the evolution of
+                        TradeFlow AI's core intelligence and security architecture.</p>
                 </div>
 
                 <!-- LEADER 3 -->
-                <div class="team-card">
-                    <div class="member-img-wrapper">
+                <div class="card" style="text-align: center;">
+                    <div class="member-img-wrapper"
+                        style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; border: 2px solid var(--primary); padding: 5px;">
                         <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Tharuneekha" alt="Tharuneekha"
-                            class="member-img">
+                            style="width: 100%; border-radius: 50%;">
                     </div>
-                    <h3>Tharuneekha</h3>
-                    <div class="role">Frontend & Research Lead</div>
-                    <p class="bio">Crafting premium user experiences and spearheading research into emerging trade
-                        technologies.</p>
+                    <h3 style="margin-bottom: 5px; font-size: 22px;">Tharuneekha</h3>
+                    <p
+                        style="color: var(--primary); font-weight: 700; font-size: 13px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
+                        Frontend & Research Lead</p>
+                    <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Crafting premium user
+                        experiences and spearheading research into emerging trade technologies.</p>
                 </div>
 
                 <!-- LEADER 4 -->
-                <div class="team-card">
-                    <div class="member-img-wrapper">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sanjay" alt="Sanjay RM"
-                            class="member-img">
+                <div class="card" style="text-align: center;">
+                    <div class="member-img-wrapper"
+                        style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; border: 2px solid var(--primary); padding: 5px;">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sanjay" alt="Sanjay"
+                            style="width: 100%; border-radius: 50%;">
                     </div>
-                    <h3>Sanjay RM</h3>
-                    <div class="role">Business Lead</div>
-                    <p class="bio">Bridging the gap between technological innovation and real-world global trade
-                        business requirements.</p>
+                    <h3 style="margin-bottom: 5px; font-size: 22px;">Sanjay RM</h3>
+                    <p
+                        style="color: var(--primary); font-weight: 700; font-size: 13px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
+                        Business Lead</p>
+                    <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Bridging the gap between
+                        technological innovation and real-world global trade business requirements.</p>
                 </div>
 
                 <!-- LEADER 5 -->
-                <div class="team-card">
-                    <div class="member-img-wrapper">
+                <div class="card" style="text-align: center;">
+                    <div class="member-img-wrapper"
+                        style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; border: 2px solid var(--primary); padding: 5px;">
                         <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Saikeerthana" alt="Saikeerthana"
-                            class="member-img">
+                            style="width: 100%; border-radius: 50%;">
                     </div>
-                    <h3>Saikeerthana</h3>
-                    <div class="role">Research Analyst</div>
-                    <p class="bio">Analyzing complex global regulations to fuel the AI engine with accurate, up-to-date
-                        compliance data.</p>
+                    <h3 style="margin-bottom: 5px; font-size: 22px;">Saikeerthana</h3>
+                    <p
+                        style="color: var(--primary); font-weight: 700; font-size: 13px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
+                        Research Analyst</p>
+                    <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Analyzing complex global
+                        regulations to fuel the AI engine with accurate, up-to-date compliance data.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Technology Section -->
+        <section class="tech-stack reveal reveal-delayed-3" style="padding: 80px 0; text-align: center;">
+            <div style="margin-bottom: 40px;">
+                <span class="section-tag" style="background: rgba(59, 130, 246, 0.1); color: var(--primary);">The
+                    Foundation</span>
+                <h2 style="font-size: 36px;">Intelligent Core Architecture</h2>
+            </div>
+            <div class="tech-grid" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <div class="tech-item" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                    <div
+                        style="width: 60px; height: 60px; background: var(--bg-card); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)"
+                            stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <span style="font-weight: 600; font-size: 14px;">Next-Gen Security</span>
+                </div>
+                <div class="tech-item" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                    <div
+                        style="width: 60px; height: 60px; background: var(--bg-card); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 16V12" />
+                            <path d="M12 8h.01" />
+                        </svg>
+                    </div>
+                    <span style="font-weight: 600; font-size: 14px;">AI Extraction</span>
+                </div>
+                <div class="tech-item" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                    <div
+                        style="width: 60px; height: 60px; background: var(--bg-card); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7" />
+                            <path d="M16 5V3" />
+                            <path d="M8 5V3" />
+                            <path d="M3 9h18" />
+                            <path d="M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                            <path d="M15 18h-2" />
+                        </svg>
+                    </div>
+                    <span style="font-weight: 600; font-size: 14px;">Global Compliance</span>
                 </div>
             </div>
         </section>
@@ -212,9 +298,8 @@
         <footer style="margin-top: 100px; text-align: center; padding-bottom: 60px;">
             <p style="color: var(--text-muted);">&copy; 2026 TradeFlow AI Platform. All rights reserved.</p>
         </footer>
-    </div>
 
-    <script src="/static/script.js"></script>
+        <script src="/static/script.js"></script>
 </body>
 
 </html>

@@ -7,33 +7,30 @@
     <title>Regulatory Updates | TradeFlow AI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
+    <div class="bg-mesh">
+        <div class="mesh-blob"
+            style="top: -10%; left: -10%; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); width: 800px; height: 800px;">
+        </div>
+        <div class="mesh-blob"
+            style="bottom: -10%; right: -10%; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); width: 600px; height: 600px;">
+        </div>
+    </div>
 
     <nav>
-        <div class="logo">TRADEFLOW AI</div>
+        <div class="logo">TRADEFLOW.AI</div>
         <div class="nav-links">
-            <div id="userProfileInfo"></div>
-            <a href="/" data-i18n="nav_home">Home</a>
-            <a href="/app" data-i18n="nav_platform">Platform</a>
-            <a href="/manual" data-i18n="nav_manual">Manual Entry</a>
-            <a href="/calculator" data-i18n="nav_calculator">Tax Calculator</a>
-            <a href="/rules" class="active" data-i18n="nav_updates">Compliance Updates</a>
-            <a href="/about" data-i18n="nav_about">About</a>
-            <select class="lang-selector" onchange="switchLanguage(this.value)">
-                <option value="en">EN</option>
-                <option value="hi">HI</option>
-                <option value="es">ES</option>
-                <option value="fr">FR</option>
-                <option value="de">DE</option>
-                <option value="zh">ZH</option>
-                <option value="ja">JA</option>
-                <option value="ru">RU</option>
-                <option value="pt">PT</option>
-                <option value="ar">AR</option>
+            <option value="fr">FR</option>
+            <option value="de">DE</option>
+            <option value="zh">ZH</option>
+            <option value="ja">JA</option>
+            <option value="ru">RU</option>
+            <option value="pt">PT</option>
+            <option value="ar">AR</option>
             </select>
         </div>
     </nav>

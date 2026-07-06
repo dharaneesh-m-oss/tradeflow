@@ -7,83 +7,50 @@
     <title>Document Generator | TradeFlow AI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
-    <style>
-        .form-section {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
 
-        .form-section h2 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .form-section h2::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .download-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .download-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--primary);
-        }
-    </style>
 </head>
 
 <body>
 
+    <div class="bg-mesh">
+        <div class="mesh-blob"
+            style="top: -10%; left: -10%; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); width: 800px; height: 800px;">
+        </div>
+        <div class="mesh-blob"
+            style="bottom: -10%; right: -10%; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); width: 600px; height: 600px;">
+        </div>
+    </div>
+
     <nav>
-        <div class="logo">TRADEFLOW AI</div>
+        <div class="logo">TRADEFLOW.AI</div>
         <div class="nav-links">
             <div id="userProfileInfo"></div>
             <a href="/">Home</a>
             <a href="/app">Platform</a>
-            <a href="/manual" class="active">Document Generator</a>
-            <a href="/rules">Compliance</a>
+            <a href="/manual" class="active">Manual</a>
+            <a href="/calculator">Calculator</a>
+            <a href="/rules">Updates</a>
             <a href="/about">About</a>
-            <select class="lang-selector" onchange="switchLanguage(this.value)">
-                <option value="en">EN</option>
-                <option value="hi">HI</option>
-            </select>
         </div>
     </nav>
 
     <div class="container" style="max-width: 1000px; margin: 40px auto;">
-        <header style="margin-bottom: 50px; text-align: center;">
+        <header style="margin-bottom: 50px; text-align: center;" class="reveal">
             <h1
-                style="font-size: 42px; margin-bottom: 10px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                style="font-size: 48px; margin-bottom: 12px; font-weight: 800; background: linear-gradient(to bottom, #fff, var(--text-muted)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
                 Trade Document Generator</h1>
-            <p style="color: var(--text-muted); font-size: 18px;">Manual entry for official Customs Declarations, PDF &
+            <p style="color: var(--text-muted); font-size: 18px; font-weight: 500;">Manual entry for official Customs
+                Declarations, PDF &
                 DOCX generation.</p>
         </header>
 
         <form id="manualEntryForm" onsubmit="submitManualEntry(event)">
             <!-- SECTION 1: CORE TRADE INFO -->
-            <div class="form-section">
-                <h2>1. Core Trade Information</h2>
+            <div class="card reveal">
+                <h2 style="font-size: 14px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px;">1.
+                    Core Trade Information</h2>
                 <div class="form-grid" style="grid-template-columns: 1fr 1fr 1fr;">
                     <div class="form-group">
                         <label>HS Code</label>
@@ -114,8 +81,9 @@
             </div>
 
             <!-- SECTION 2: STAKEHOLDERS -->
-            <div class="form-section">
-                <h2>2. Shipping Stakeholders</h2>
+            <div class="card reveal reveal-delayed-1">
+                <h2 style="font-size: 14px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px;">2.
+                    Shipping Stakeholders</h2>
                 <div class="form-grid">
                     <div class="form-group">
                         <label>Importer Name (Consignee)</label>
@@ -137,8 +105,9 @@
             </div>
 
             <!-- SECTION 3: LOGISTICS -->
-            <div class="form-section">
-                <h2>3. Logistics & Ports</h2>
+            <div class="card reveal reveal-delayed-2">
+                <h2 style="font-size: 14px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px;">3.
+                    Logistics & Ports</h2>
                 <div class="form-grid" style="grid-template-columns: 1fr 1fr 1fr;">
                     <div class="form-group">
                         <label>Vessel / Flight</label>
@@ -178,8 +147,9 @@
             </div>
 
             <!-- SECTION 4: WEIGHTS -->
-            <div class="form-section">
-                <h2>4. Weight Details</h2>
+            <div class="card reveal reveal-delayed-3">
+                <h2 style="font-size: 14px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px;">4.
+                    Weight Details</h2>
                 <div class="form-grid">
                     <div class="form-group">
                         <label>Net Weight (KG)</label>
@@ -192,9 +162,9 @@
                 </div>
             </div>
 
-            <div style="margin-top: 50px; display: flex; gap: 20px; justify-content: center;">
-                <button type="submit" class="btn btn-primary"
-                    style="padding: 18px 50px; font-size: 18px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 112, 243, 0.3);">
+            <div style="margin-top: 50px; display: flex; gap: 20px; justify-content: center;"
+                class="reveal reveal-delayed-3">
+                <button type="submit" class="primary-btn" style="width: auto; padding: 20px 60px;">
                     Check Compliance & Generate Documents
                 </button>
             </div>

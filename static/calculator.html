@@ -56,173 +56,177 @@
     </style>
 </head>
 
-<body>
+<div class="bg-mesh">
+    <div class="mesh-blob"
+        style="top: -10%; left: -10%; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); width: 800px; height: 800px;">
+    </div>
+    <div class="mesh-blob"
+        style="bottom: -10%; right: -10%; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); width: 600px; height: 600px;">
+    </div>
+</div>
+<div class="logo">TRADEFLOW.AI</div>
+<div class="nav-links">
+    <div id="userProfileInfo"></div>
+    <a href="/">Home</a>
+    <a href="/app">Platform</a>
+    <a href="/manual">Manual</a>
+    <a href="/calculator" class="active">Calculator</a>
+    <a href="/rules">Updates</a>
+    <a href="/about">About</a>
+</div>
+</nav>
 
-    <nav>
-        <div class="logo">TRADEFLOW AI</div>
-        <div class="nav-links">
-            <div id="userProfileInfo"></div>
-            <a href="/">Home</a>
-            <a href="/app">Platform</a>
-            <a href="/manual">Manual Entry</a>
-            <a href="/calculator" class="active">Tax Calculator</a>
-            <a href="/rules">Compliance</a>
-            <a href="/about">About</a>
-            <select class="lang-selector" onchange="switchLanguage(this.value)">
-                <option value="en">EN</option>
-                <option value="hi">HI</option>
-            </select>
+<div class="container" style="max-width: 1000px; margin: 40px auto;">
+    <header style="margin-bottom: 50px; text-align: center;" class="reveal">
+        <h1
+            style="font-size: 42px; margin-bottom: 10px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+            Tax & Duty Calculator</h1>
+        <p style="color: var(--text-muted); font-size: 18px;">Expert-grade backend verified tax assessments with
+            official challan generation.</p>
+    </header>
+
+    <div class="calculator-grid reveal-stagger"
+        style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: start;">
+        <div class="card">
+            <div class="form-group" style="margin-bottom: 30px;">
+                <label
+                    style="display: block; color: var(--text-muted); font-size: 11px; text-transform: uppercase; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 12px;">Item
+                    Value (CIF/FOB)</label>
+                <input type="number" id="calcValue" placeholder="0.00" oninput="debounceUpdate()">
+            </div>
+            <div class="form-group">
+                <label>Currency</label>
+                <select id="calcFromCurrency" onchange="debounceUpdate()">
+                    <option value="USD">USD - US Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="INR">INR - Indian Rupee</option>
+                    <option value="AED">AED - UAE Dirham</option>
+                    <option value="GBP">GBP - British Pound</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Target Authority</label>
+                <select id="calcTargetCountry" onchange="debounceUpdate()">
+                    <option value="india">India Customs</option>
+                    <option value="usa">USA CBP</option>
+                    <option value="japan">Japan Customs</option>
+                    <option value="uae">UAE Customs</option>
+                    <option value="uk">UK HMRC</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Goods Category</label>
+                <select id="calcCategory" onchange="debounceUpdate()">
+                    <option value="standard">Standard Goods</option>
+                    <option value="electronics">Electronics/Tech</option>
+                    <option value="luxury">Luxury / Restricted</option>
+                </select>
+            </div>
         </div>
-    </nav>
 
-    <div class="container" style="max-width: 1000px; margin: 40px auto;">
-        <header style="margin-bottom: 50px; text-align: center;">
-            <h1
-                style="font-size: 42px; margin-bottom: 10px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                Tax & Duty Calculator</h1>
-            <p style="color: var(--text-muted); font-size: 18px;">Expert-grade backend verified tax assessments with
-                official challan generation.</p>
-        </header>
-
-        <div class="calculator-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-            <div class="calc-form glass-form" style="padding: 30px;">
-                <div class="form-group">
-                    <label>Item Value (CIF/FOB)</label>
-                    <input type="number" id="calcValue" placeholder="0.00" oninput="debounceUpdate()">
-                </div>
-                <div class="form-group">
-                    <label>Currency</label>
-                    <select id="calcFromCurrency" onchange="debounceUpdate()">
-                        <option value="USD">USD - US Dollar</option>
-                        <option value="EUR">EUR - Euro</option>
-                        <option value="INR">INR - Indian Rupee</option>
-                        <option value="AED">AED - UAE Dirham</option>
-                        <option value="GBP">GBP - British Pound</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Target Authority</label>
-                    <select id="calcTargetCountry" onchange="debounceUpdate()">
-                        <option value="india">India Customs</option>
-                        <option value="usa">USA CBP</option>
-                        <option value="japan">Japan Customs</option>
-                        <option value="uae">UAE Customs</option>
-                        <option value="uk">UK HMRC</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Goods Category</label>
-                    <select id="calcCategory" onchange="debounceUpdate()">
-                        <option value="standard">Standard Goods</option>
-                        <option value="electronics">Electronics/Tech</option>
-                        <option value="luxury">Luxury / Restricted</option>
-                    </select>
-                </div>
+        <div class="calc-results glass-form" style="padding: 30px;">
+            <h3 style="margin-bottom: 20px;">Assessment Breakdown</h3>
+            <div id="calcLoading" class="hidden" style="text-align: center; padding: 40px;">
+                <div class="spinner" style="margin: 0 auto;"></div>
+                <p style="margin-top: 15px; color: var(--text-muted);">Syncing with backend rules...</p>
             </div>
 
-            <div class="calc-results glass-form" style="padding: 30px;">
-                <h3 style="margin-bottom: 20px;">Assessment Breakdown</h3>
-                <div id="calcLoading" class="hidden" style="text-align: center; padding: 40px;">
-                    <div class="spinner" style="margin: 0 auto;"></div>
-                    <p style="margin-top: 15px; color: var(--text-muted);">Syncing with backend rules...</p>
+            <div id="resultContent" class="result-box">
+                <div class="result-row">
+                    <span style="color: var(--text-muted);">Import Duty</span>
+                    <span id="dutyDisplay" style="font-weight: 600;">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span id="taxLabel" style="color: var(--text-muted);">Tax/VAT/GST</span>
+                    <span id="taxDisplay" style="font-weight: 600;">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span style="font-weight: 800; font-size: 18px;">Total Payable</span>
+                    <span id="totalDisplay" class="total-h">$0.00</span>
                 </div>
 
-                <div id="resultContent" class="result-box">
-                    <div class="result-row">
-                        <span style="color: var(--text-muted);">Import Duty</span>
-                        <span id="dutyDisplay" style="font-weight: 600;">$0.00</span>
-                    </div>
-                    <div class="result-row">
-                        <span id="taxLabel" style="color: var(--text-muted);">Tax/VAT/GST</span>
-                        <span id="taxDisplay" style="font-weight: 600;">$0.00</span>
-                    </div>
-                    <div class="result-row">
-                        <span style="font-weight: 800; font-size: 18px;">Total Payable</span>
-                        <span id="totalDisplay" class="total-h">$0.00</span>
-                    </div>
-
-                    <button id="challanBtn" class="download-btn" onclick="generateChallan()" disabled>
-                        <span>📄 Generate Official Challan</span>
-                    </button>
-                    <p style="font-size: 11px; color: var(--text-muted); margin-top: 15px; text-align: center;">Values
-                        are indicative estimates based on current rules.json</p>
-                </div>
+                <button id="challanBtn" class="download-btn" onclick="generateChallan()" disabled>
+                    <span>📄 Generate Official Challan</span>
+                </button>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 15px; text-align: center;">Values
+                    are indicative estimates based on current rules.json</p>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="/static/script.js"></script>
-    <script>
-        let debounceTimer;
-        let lastResult = null;
+<script src="/static/script.js"></script>
+<script>
+    let debounceTimer;
+    let lastResult = null;
 
-        function debounceUpdate() {
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(async () => {
-                const val = document.getElementById("calcValue").value;
-                if (!val || val <= 0) return;
+    function debounceUpdate() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(async () => {
+            const val = document.getElementById("calcValue").value;
+            if (!val || val <= 0) return;
 
-                const loading = document.getElementById("calcLoading");
-                const content = document.getElementById("resultContent");
+            const loading = document.getElementById("calcLoading");
+            const content = document.getElementById("resultContent");
 
-                loading.classList.remove("hidden");
-                content.style.opacity = "0.5";
-
-                try {
-                    const response = await fetch("/api/calculate-tax/", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            value: val,
-                            from_currency: document.getElementById("calcFromCurrency").value,
-                            target_country: document.getElementById("calcTargetCountry").value,
-                            category: document.getElementById("calcCategory").value
-                        })
-                    });
-
-                    const result = await response.json();
-                    if (!response.ok) throw new Error(result.detail);
-
-                    lastResult = result;
-                    document.getElementById("dutyDisplay").innerText = `${result.duty_amount} ${result.currency}`;
-                    document.getElementById("taxDisplay").innerText = `${result.tax_amount} ${result.currency}`;
-                    document.getElementById("totalDisplay").innerText = `${result.total_payable} ${result.currency}`;
-                    document.getElementById("challanBtn").disabled = false;
-
-                } catch (err) {
-                    console.error(err);
-                } finally {
-                    loading.classList.add("hidden");
-                    content.style.opacity = "1";
-                }
-            }, 500);
-        }
-
-        async function generateChallan() {
-            if (!lastResult) return;
-            const btn = document.getElementById("challanBtn");
-            const original = btn.innerHTML;
-            btn.innerHTML = "Generating...";
-            btn.disabled = true;
+            loading.classList.remove("hidden");
+            content.style.opacity = "0.5";
 
             try {
-                const response = await fetch("/api/generate-challan/", {
+                const response = await fetch("/api/calculate-tax/", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(lastResult)
+                    body: JSON.stringify({
+                        value: val,
+                        from_currency: document.getElementById("calcFromCurrency").value,
+                        target_country: document.getElementById("calcTargetCountry").value,
+                        category: document.getElementById("calcCategory").value
+                    })
                 });
-                const res = await response.json();
-                if (res.challan_url) {
-                    window.open(res.challan_url, '_blank');
-                }
+
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.detail);
+
+                lastResult = result;
+                document.getElementById("dutyDisplay").innerText = `${result.duty_amount} ${result.currency}`;
+                document.getElementById("taxDisplay").innerText = `${result.tax_amount} ${result.currency}`;
+                document.getElementById("totalDisplay").innerText = `${result.total_payable} ${result.currency}`;
+                document.getElementById("challanBtn").disabled = false;
+
             } catch (err) {
-                alert("Failed to generate challan");
+                console.error(err);
             } finally {
-                btn.innerHTML = original;
-                btn.disabled = false;
+                loading.classList.add("hidden");
+                content.style.opacity = "1";
             }
+        }, 500);
+    }
+
+    async function generateChallan() {
+        if (!lastResult) return;
+        const btn = document.getElementById("challanBtn");
+        const original = btn.innerHTML;
+        btn.innerHTML = "Generating...";
+        btn.disabled = true;
+
+        try {
+            const response = await fetch("/api/generate-challan/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(lastResult)
+            });
+            const res = await response.json();
+            if (res.challan_url) {
+                window.open(res.challan_url, '_blank');
+            }
+        } catch (err) {
+            alert("Failed to generate challan");
+        } finally {
+            btn.innerHTML = original;
+            btn.disabled = false;
         }
-    </script>
+    }
+</script>
 </body>
 
 </html>
